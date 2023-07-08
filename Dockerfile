@@ -17,6 +17,10 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 RUN npm install -g redoc-cli
 
+WORKDIR /usr/app
+
+COPY . .
+
 RUN npm install
 
 RUN redoc-cli bundle -o public/index.html openapi.json
